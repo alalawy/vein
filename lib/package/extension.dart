@@ -1,3 +1,5 @@
+import 'package:flutter/widgets.dart';
+
 import 'vein_notifier.dart';
 
 extension VeinInt on int {
@@ -47,4 +49,28 @@ extension VeinSet<T> on Set<T> {
     final VeinNotifier<Set<T>> val = VeinNotifier(this);
     return val;
   }
+}
+
+extension VeinWidget on Widget {
+  VeinNotifier<Widget> get spec {
+    final VeinNotifier<Widget> val = VeinNotifier(this);
+    return val;
+  }
+}
+
+extension VeinT<T> on T {
+  VeinNotifier<T> get spec {
+    final VeinNotifier<T> val = VeinNotifier(this);
+    return val;
+  }
+}
+
+extension SpacerExt on double {
+  Widget get h => SizedBox(height: this);
+  Widget get w => SizedBox(width: this);
+}
+
+extension SpacerIntExt on int {
+  Widget get h => SizedBox(height: toDouble());
+  Widget get w => SizedBox(width: toDouble());
 }
